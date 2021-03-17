@@ -30,12 +30,12 @@ async def fastpurger(purg):
                 await purg.client.delete_messages(chat, msgs)
                 msgs = []
     else:
-        return await purg.edit("**I need a mesasge to start purging from.**")
+        return await purg.edit("**I need a message to start purging from.**")
 
     if msgs:
         await purg.client.delete_messages(chat, msgs)
     done = await purg.client.send_message(
-        purg.chat_id, "**Fast purge complete!**" f"\nPurged {str(count)} messages"
+        purg.chat_id, "**Purged successfully!**" f"\nPurged {str(count)} messages"
     )
     await sleep(2)
     await done.delete()
@@ -56,7 +56,7 @@ async def purgeme(delme):
 
     smsg = await delme.client.send_message(
         delme.chat_id,
-        "**Purge complete!** Purged " + str(count) + " messages.",
+        "**Purged successfully!** Purged " + str(count) + " messages.",
     )
     await sleep(2)
     i = 1
