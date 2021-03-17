@@ -152,7 +152,6 @@ async def upload_track(track_location, message):
     await message.client.send_file(
         message.chat_id,
         track_location,
-        caption=os.path.basename(track_location),
         force_document=False,
         supports_streaming=True,
         allow_cache=False,
