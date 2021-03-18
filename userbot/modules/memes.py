@@ -889,7 +889,7 @@ async def metoo(hahayes):
 @register(outgoing=True, pattern="^.Oof$")
 async def Oof(e):
     t = "Oof"
-    for _ in range(15):
+    for _ in range(10):
         t = t[:-1] + "of"
         await e.edit(t)
 
@@ -897,21 +897,21 @@ async def Oof(e):
 @register(outgoing=True, pattern="^.oof$")
 async def oof(e):
     t = "oof"
-    for _ in range(15):
+    for _ in range(10):
         t = t[:-1] + "of"
         await e.edit(t)
 
 @register(outgoing=True, pattern="^.hmm$")
 async def hmm(e):
     t = "hmm"
-    for _ in range(15):
+    for _ in range(10):
         t += "m"
         await e.edit(t)
 
 @register(outgoing=True, pattern="^.Hmm$")
 async def Hmm(e):
     t = "Hmm"
-    for _ in range(15):
+    for _ in range(10):
         t += "m"
         await e.edit(t)
 
