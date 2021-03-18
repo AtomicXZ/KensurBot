@@ -901,6 +901,19 @@ async def oof(e):
         t = t[:-1] + "of"
         await e.edit(t)
 
+@register(outgoing=True, pattern="^.hmm$")
+async def hmm(e):
+    t = "hmm"
+    for _ in range(15):
+        t += "m"
+        await e.edit(t)
+
+@register(outgoing=True, pattern="^.Hmm$")
+async def Hmm(e):
+    t = "Hmm"
+    for _ in range(15):
+        t += "m"
+        await e.edit(t)
 
 @register(outgoing=True, pattern=r"^\.mock(?: |$)(.*)")
 async def spongemocktext(mock):
@@ -1078,6 +1091,10 @@ CMD_HELP.update(
 \nUsage: Ooooof\
 \n\n.oof\
 \nUsage: ooooof\
+\n\n.Hmm\
+\nUsage: Hmmmmm\
+\n\n.hmm\
+\nUsage: hmmmmm\
 \n\n.hi\
 \nUsage: Greet everyone!\
 \n\n.coinflip <heads/tails>\
