@@ -280,7 +280,7 @@ async def resize_photo(photo):
     return image
 
 
-@register(outgoing=True, pattern=r"^\.stkrinfo$")
+@register(outgoing=True, pattern=r"^\.stickerinfo$")
 async def get_pack_info(event):
     if not event.is_reply:
         return await event.edit("**I can't fetch info from nothing, can I?**")
@@ -376,7 +376,7 @@ CMD_HELP.update(
     {
         "stickers": ">`.kang <emoji>[optional] <pack number>[optional]`"
         "\nUsage: Adds sticker or image to your userbot pack."
-        "\n\n>`.stkrinfo`"
+        "\n\n>`.stickerinfo`"
         "\nUsage: Gets info about the sticker pack."
         "\n\n>`.getsticker`"
         "\nUsage: Reply to a sticker to get 'PNG' file of sticker."
