@@ -66,8 +66,10 @@ async def walld(strin: str):
     if len(strin.split()) > 1:
         strin = "+".join(strin.split())
     url = "https://wall.alphacoders.com/search.php?search="
-    none_got = ["https://wall.alphacoders.com/finding_wallpapers.php"]
-    none_got.append("https://wall.alphacoders.com/search-no-results.php")
+    none_got = [
+        "https://wall.alphacoders.com/finding_wallpapers.php",
+        "https://wall.alphacoders.com/search-no-results.php",
+    ]
     page_link = "https://wall.alphacoders.com/search.php?search={}&page={}"
     resp = requests.get(f"{url}{strin}")
     if resp.url in none_got:
@@ -120,5 +122,6 @@ async def walld(strin: str):
     return tit_link
 
 
-CMD_HELP.update({"wallpaper": ">`.wall` <query>."
-                 "\nUsage: Search some wallpaper picture."})
+CMD_HELP.update(
+        {"wallpaper": ">`.wall` <query>." "\nUsage: Search some wallpaper picture."}
+)
