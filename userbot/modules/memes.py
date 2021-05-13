@@ -605,10 +605,71 @@ HIT = [
     "bashes",
 ]
 
-WHERE = ["in the chest", "on the head", "on the butt", "on the crotch"]
+WHERE = [
+    "in the chest",
+    "on the head",
+    "on the butt",
+    "on the crotch"
+]
+
+ADJ_S = [
+    "salty",
+    "fat",
+    "fucking",
+    "shitty",
+    "stupid",
+    "retarded",
+    "self conscious",
+    "tiny"
+]
+
+ADJ_M = [
+    "little",
+    "vitamin D deficient",
+    "idiotic",
+    "incredibly stupid"
+]
+
+NOUN = [
+    "cunt",
+    "pig",
+    "pedophile",
+    "beta male",
+    "bottom",
+    "retard",
+    "ass licker",
+    "cunt nugget",
+    "PENIS",
+    "dickhead",
+    "flute",
+    "idiot",
+    "motherfucker",
+    "loner",
+    "creep"
+]
+
+START = [
+    "You're a",
+    "You",
+    "Fuck off you",
+    "Actually die you",
+    "Listen up you",
+    "What the fuck is wrong with you, you"
+]
+
+END = [
+    "!!!!",
+    "!",
+    ""
+]
 
 # ===========================================
 
+@register(outgoing=True, pattern=r"^\.abuse$")
+async def abuse(e):
+    """Use when angry"""
+    abuse = choice(START) + " " + choice(ADJ_S) + " " + choice(ADJ_M) + " " + choice(NOUN) + choice(END)
+    await e.edit(abuse)
 
 @register(outgoing=True, pattern=r"^\.(\w+)say (.*)")
 async def univsaye(cowmsg):
@@ -1076,8 +1137,10 @@ async def typewriter(typew):
 
 CMD_HELP.update(
     {
-        "memes": ".cowsay\
-\nUsage: cow which says things.\
+        "memes": ".abuse\
+\nUsage: Random insulting strings.\
+\n\n.cowsay\
+\nUsage: Cow which says things.\
 \n\n.cp\
 \nUsage: Copypasta the famous meme\
 \n\n.vapor\
