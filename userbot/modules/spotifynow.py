@@ -13,7 +13,7 @@ from userbot.events import register
 async def _(event):
     if event.fwd_from:
         return
-    chat = "@SpotifyNowBot"
+    chat = "@spotipiebot"
     now = "/now"
     await event.edit("**Processing...**")
     try:
@@ -24,9 +24,9 @@ async def _(event):
                 """ - don't spam notif - """
                 await bot.send_read_acknowledge(conv.chat_id)
             except YouBlockedUserError:
-                await event.reply("**Please unblock** @SpotifyNowBot**.**")
+                await event.reply("**Please unblock** @spotipiebot**.**")
                 return
-            if response.text.startswith("You're"):
+            if response.text.startswith("You are"):
                 await event.edit(
                     "**You're not listening to anything on Spotify at the moment.**"
                 )
@@ -44,7 +44,7 @@ async def _(event):
             """ - cleanup chat after completed - """
             await event.client.delete_messages(conv.chat_id, [msg.id, response.id])
     except TimeoutError:
-        return await event.edit("**Error:** @SpotifyNowBot **is not responding.**")
+        return await event.edit("**Error:** @spotipiebot **is not responding.**")
     await event.delete()
     return os.remove(downloaded_file_name)
 
